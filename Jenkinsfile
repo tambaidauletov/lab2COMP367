@@ -2,19 +2,19 @@ pipeline {
     agent any
 
     tools {
-        maven 'Maven3'  
+        maven 'Maven3'
     }
 
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/tambaidauletov/lab2COMP367.git'
+                git branch: 'main', url: 'https://github.com/tambaidauletov/lab2COMP367.git'
             }
         }
 
         stage('Build') {
             steps {
-                bat 'mvn clean package' 
+                bat 'mvn clean package'
             }
         }
 
@@ -27,7 +27,6 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo "Deploying the application..."
-               
             }
         }
     }
